@@ -35,10 +35,5 @@ Thumbs.db
 
 # Ignore user-specific .json config files
 *.json
-
-# Exclude Copilot settings or chat files
-.copilot/
-.copilotignore
-
-# Exclude by Copilot-chat usage
-*.copilotchat
+.vs/
+!.vsconfig
