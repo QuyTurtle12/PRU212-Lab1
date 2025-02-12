@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Vulnerable
-  - Asteroid
+  - Projectile
+  - Meteor
+  - Star
+  - Meteor1
+  - Meteor2
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - Enemy
   - Vulnerable
   - 
-  - 
+  - Character
   - 
   - 
   - 
