@@ -53,7 +53,7 @@ public class TimerScript : MonoBehaviour
         }
         else if (currentSceneName == "1-3")
         {
-            SceneManager.LoadScene("MainMenu");  // Transition from 1-3 to MainMenu or another scene
+            SceneManager.LoadScene("EndMenu");  // Transition from 1-3 to MainMenu or another scene
         }
 
     }
