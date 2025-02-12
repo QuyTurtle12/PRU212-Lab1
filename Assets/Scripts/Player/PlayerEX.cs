@@ -1,8 +1,6 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class Player : MonoBehaviour
+public class PlayerEx : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -1,6 +1,6 @@
 using spaceExplorer.DamageSystem;
 using spaceExplorer.Health;
-using spaceExplorer.star;
+using spaceExplorer.Player;
 using System;
 using UnityEngine;
 

@@ -6,7 +6,6 @@ namespace spaceExplorer.DamageSystem
     public class Vulnerable : MonoBehaviour
     {
         private Health.HealthSystem healthSystem;
-
         private void Awake()
         {
             healthSystem = GetComponent<Health.HealthSystem>();
