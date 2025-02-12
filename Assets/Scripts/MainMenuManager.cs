@@ -9,7 +9,8 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         // Load the Gameplay scene
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("1-1");
+        SceneTransition.instance.FadeToScene("1-1");
     }
 
     public void ShowInstructions()
