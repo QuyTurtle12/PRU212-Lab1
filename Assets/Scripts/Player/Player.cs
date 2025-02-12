@@ -9,8 +9,8 @@ namespace spaceExplorer.Player
         public Player Instance { get; private set; }
         private PlayerMove playerMove;
         private PlayerAttack playerAttack;
-        private float damage = 10f;
-        private float maxHealth = 100f;
+        private readonly float damage = 10f;
+        private readonly float maxHealth = 100f;
         private HealthSystem healthSystem;
 
         private void Awake()

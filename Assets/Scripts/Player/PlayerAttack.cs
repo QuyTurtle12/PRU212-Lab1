@@ -37,12 +37,12 @@ namespace spaceExplorer.Player
             {
                 Vulnerable target = hit.collider.GetComponent<Vulnerable>();
                 DamageDealer.DealDamage(target);
-                Debug.Log($"Hit {hit.collider.name} at {hit.point}");
+                /*Debug.Log($"Hit {hit.collider.name} at {hit.point}");*/
             }
-            else
+            /*else
             {
                 Debug.Log("No hit");
-            }
+            }*/
         }        
     }
 }

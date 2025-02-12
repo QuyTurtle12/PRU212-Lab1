@@ -7,7 +7,7 @@ namespace spaceExplorer.Player
         private InputSystem_Actions action;
         public Transform PlayerTransform { get; set; }
         private Vector3 moveDir;
-        private readonly float moveSpeed = 5f;
+        private readonly float moveSpeed = 10f;
         public bool IsMoving {  get; private set; }
         private void Start()
         {
