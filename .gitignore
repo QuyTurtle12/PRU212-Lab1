@@ -34,4 +34,8 @@ Thumbs.db
 *.suo
 
 # Ignore user-specific .json config files
+
 *.json
+.vs/
+!.vsconfig
+
