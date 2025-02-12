@@ -10,28 +10,38 @@ namespace spaceExplorer.Player
         private readonly float laserRange = 100f;
         private LayerMask targetLayer;
         public DamageDealer DamageDealer {  get; set; }
+        [SerializeField] private LineRenderer lazerRenderer;
+        private AudioSource audioSource;
+        [SerializeField] private AudioClip shootingBeamSFX;
 
         private void Start()
         {
-            
+            audioSource = GetComponent<AudioSource>();
             targetLayer = LayerMask.GetMask("Vulnerable");
             action = new InputSystem_Actions();
             action.Enable();
-
+            lazerRenderer.enabled = false;
             action.Player.Attack.performed += OnShootPerformed;
         }
         private void OnShootPerformed(InputAction.CallbackContext context)
         {
+            if (Player.Instance == null) return; 
             ShootLaser();
         }
         private void ShootLaser()
         {
-            // Create a ray starting at the object's position and pointing forward
             Ray ray = new Ray(transform.position, transform.up);
-            // Draw a red line from the object's position to the hit point
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * laserRange, Color.red, 1f);
-            // Cast a ray in the forward direction
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, laserRange, targetLayer);
+            Vector3 endPosition = hit ? (Vector3)hit.point : ray.origin + ray.direction * laserRange;
+
+            // Enable and set the LineRenderer positions
+            lazerRenderer.enabled = true;
+            lazerRenderer.SetPosition(0, transform.position); // Start point (player position)
+            lazerRenderer.SetPosition(1, endPosition); // End point (either hit target or max range)
+
+            // Hide the laser after a short delay
+            Invoke(nameof(DisableLaser), 0.1f);
+
             // Check if the ray hits something
             if (hit)
             {
@@ -39,11 +49,14 @@ namespace spaceExplorer.Player
                 DamageDealer.DealDamage(target);
                 Debug.Log($"Hit {hit.collider.name} at {hit.point}");
             }
-            else
-            {
-                Debug.Log("No hit");
-            }
-        }        
+
+            // Play the shooting beam sound effect
+            audioSource.PlayOneShot(shootingBeamSFX);
+        }
+        private void DisableLaser()
+        {
+            lazerRenderer.enabled = false;
+        }
     }
 }
 

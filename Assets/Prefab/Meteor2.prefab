@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 4785347541488796465}
   - component: {fileID: 2050414484920158114}
   - component: {fileID: 4816598122796011033}
-  m_Layer: 0
+  - component: {fileID: 3014737813915422295}
+  - component: {fileID: 1272520333225417202}
+  m_Layer: 8
   m_Name: Meteor2
   m_TagString: Meteor
   m_Icon: {fileID: 0}
@@ -148,3 +150,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Meterorspeed: 25
+  maxHealth: 10
+--- !u!114 &3014737813915422295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839531744339808898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce84a87ab80239a44b53f34ca07d2a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1272520333225417202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839531744339808898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209c5dd6a2fd48143833924d8006a372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

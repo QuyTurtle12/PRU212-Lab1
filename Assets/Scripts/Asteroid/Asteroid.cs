@@ -1,6 +1,6 @@
 using spaceExplorer.DamageSystem;
 using spaceExplorer.Health;
-using spaceExplorer.star;
+using spaceExplorer.Player;
 using System;
 using UnityEngine;
 
@@ -20,7 +20,14 @@ namespace spaceExplorer.Asteroid
             healthSystem.Setup(maxHealth);
             healthSystem.OnDeath += OnDeath;
         }
-
+        private void Update()
+        {
+            Vector3 playerPosition = Player.Player.Instance.transform.position;
+            if (transform.position.y < playerPosition.y - 10f)
+            {
+                Destroy(gameObject);
+            }
+        }
         private void OnDeath(object sender, EventArgs e)
         {
             Instantiate(starPrefab, transform.position, Quaternion.identity);
