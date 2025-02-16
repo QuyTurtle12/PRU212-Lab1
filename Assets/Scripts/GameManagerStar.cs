@@ -20,8 +20,14 @@ public class GameManagerStar : MonoBehaviour
 
 
     void InstantiateStar()
+
+
     {
-        Vector3 Starpos = new Vector3(Random.Range(minInstantiatevalue, maxInstantiatevalue), 8f);
+
+        float minX = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
+        float maxX = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+
+        Vector3 Starpos = new Vector3(Random.Range(minX, maxX), Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y + 1f, 0);
         GameObject Star = Instantiate(StarPrefab, Starpos, Quaternion.Euler(0f, 0f, 180f));
         Destroy(Star, StarDestroyTime);
     }

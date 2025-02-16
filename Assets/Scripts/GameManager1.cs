@@ -25,7 +25,10 @@ public class GameManager1 : MonoBehaviour
 
     void InstantiateMeteor1()
     {
-        Vector3 Meteor1pos = new Vector3(Random.Range(minInstantiatevalue, maxInstantiatevalue), 8f);
+
+        float minX = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
+        float maxX = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+        Vector3 Meteor1pos = new Vector3(Random.Range(minX, maxX), Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y + 1f, 0);
         GameObject Meteor1 = Instantiate(Meteor1Prefab, Meteor1pos, Quaternion.Euler(0f, 0f, 180f));
         Destroy(Meteor1, Meteor1DestroyTime);
     }
