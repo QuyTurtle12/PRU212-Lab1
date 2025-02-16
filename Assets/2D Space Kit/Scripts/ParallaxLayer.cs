@@ -1,18 +1,25 @@
 ﻿using UnityEngine;
 using spaceExplorer.Player;
 
-public class ParallaxLayer : MonoBehaviour {
+public class ParallaxLayer : MonoBehaviour
+{
+    public float movement_resistance = 1f; // Controls how much the background moves
+    public float damping = 5f; // Higher values make it smoother
 
-	Vector3 wantedPosition;
-	public float movement_resistance = 1f; //1 = no movement, 0.9 = some movement, 0.5 = more movement, etc, 0 = centered at origin, layer is now foreground
-	// Update is called once per frame
-	private void Update () {
-		if(Player.Instance == null || !Application.isPlaying)
-		{
+    private Vector3 targetPosition;
+
+    private void Update()
+    {
+        if (Player.Instance == null || !Application.isPlaying)
+        {
             return;
         }
-        wantedPosition = Player.Instance.transform.position * movement_resistance;
-        wantedPosition.z = transform.position.z;
-        transform.position = wantedPosition;
+
+        targetPosition = Player.Instance.transform.position * movement_resistance;
+        targetPosition.z = transform.position.z;
+
+        // Smoothly interpolate to the target position
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * damping);
     }
 }
+
