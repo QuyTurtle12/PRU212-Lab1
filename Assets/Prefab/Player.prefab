@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fed19f1df6698438c20eb51587bcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieSFX: {fileID: 8300000, guid: 8eaec029b938d5f43b25c4b10be1c297, type: 3}
 --- !u!82 &5396947394779816991
 AudioSource:
   m_ObjectHideFlags: 0
@@ -403,8 +404,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c7e32b96f5d11ed459e5d23a2180edc0, type: 3}
-  m_Resource: {fileID: 8300000, guid: c7e32b96f5d11ed459e5d23a2180edc0, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
