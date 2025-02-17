@@ -841,6 +841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8391044621764649392, guid: bf2f0010fece4f746be36365cc733bf4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -933,6 +937,14 @@ PrefabInstance:
     - target: {fileID: 417185088477069706, guid: 1fb12241a4b9ac94e9d3417e5681a901, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440791611733098791, guid: 1fb12241a4b9ac94e9d3417e5681a901, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 545
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440791611733098791, guid: 1fb12241a4b9ac94e9d3417e5681a901, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 8390096683145806122, guid: 1fb12241a4b9ac94e9d3417e5681a901, type: 3}
       propertyPath: m_Name

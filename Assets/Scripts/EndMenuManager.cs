@@ -5,7 +5,7 @@ public class EndMenuManager : MonoBehaviour
     // Return to main menu scene
     public void EndGame()
     {
-        SceneTransition.instance.FadeToScene("1-1");
+        SceneTransition.instance.FadeToScene("MainMenu");
     }
 
     // Quit Game
