@@ -19,6 +19,7 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
         if (isTimerActive)
         {
             currentTime -= Time.deltaTime;
