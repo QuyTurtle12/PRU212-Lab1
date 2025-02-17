@@ -5,17 +5,16 @@ using UnityEngine.UI; // Optional, if you want to display the countdown on UI
 public class TimerScript : MonoBehaviour
 {
     // Time in seconds
-    public float timeLimit = 10f;  
+    public float timeLimit = 10f;
     private float currentTime;
-    public Text timerText;
+    public Text timerText;  // Reference to the Text UI element
 
-    private bool isTimerActive = false;  
+    private bool isTimerActive = false;
 
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         ResetTimer();
-
     }
 
     void Update()
@@ -26,6 +25,7 @@ public class TimerScript : MonoBehaviour
 
             if (timerText != null)
             {
+                // Update the timer text in the top-right of the screen
                 timerText.text = "Time left: " + Mathf.Round(currentTime).ToString() + "s";
             }
 
@@ -53,9 +53,8 @@ public class TimerScript : MonoBehaviour
         }
         else if (currentSceneName == "1-3")
         {
-            SceneManager.LoadScene("EndMenu");  // Transition from 1-3 to MainMenu or another scene
+            SceneManager.LoadScene("MainMenu");  // Transition from 1-3 to MainMenu or another scene
         }
-
     }
 
     void ResetTimer()
@@ -78,6 +77,4 @@ public class TimerScript : MonoBehaviour
     {
         ResetTimer();  // Reset the timer every time a new scene is loaded
     }
-
-
 }
