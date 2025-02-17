@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;  // To manage scenes
 using UnityEngine.UI; // Optional, if you want to display the countdown on UI
@@ -8,18 +9,37 @@ public class TimerScript : MonoBehaviour
     public float timeLimit = 10f;
     private float currentTime;
     public Text timerText;  // Reference to the Text UI element
-
+    public PlayerEx playerEx;
     private bool isTimerActive = false;
 
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+        playerEx = GameObject.Find("Player").GetComponent<PlayerEx>();
         ResetTimer();
+
+        playerEx.OnDeath += PlayerEx_OnDeath;
+    }
+
+    private void PlayerEx_OnDeath(object sender, System.EventArgs e)
+    {
+        StartCoroutine(LoadEndMenuAfterDelay(2f));
+    }
+    private IEnumerator LoadEndMenuAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("EndMenu");
+        timerText.enabled = false;
     }
 
     void Update()
     {
-        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        if (SceneManager.GetActiveScene().name != "EndMenu" && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        }
+
         if (isTimerActive)
         {
             currentTime -= Time.deltaTime;

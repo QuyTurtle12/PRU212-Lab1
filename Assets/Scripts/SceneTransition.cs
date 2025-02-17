@@ -31,6 +31,8 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator FadeAndLoad(string sceneName)
     {
+        fadeImage = GameObject.Find("FadeImage").GetComponent<Image>();
+
         // Fade out (make the image visible)
         fadeImage.gameObject.SetActive(true);
         float fadeTime = 1f;

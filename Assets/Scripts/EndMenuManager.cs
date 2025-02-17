@@ -9,7 +9,6 @@ public class EndMenuManager : MonoBehaviour
     public void EndGame()
     {
         SceneManager.LoadScene("MainMenu");
-        sceneTransition.FadeToScene("MainMenu");
 
     }
 
