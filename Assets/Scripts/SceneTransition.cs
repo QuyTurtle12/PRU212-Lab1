@@ -5,25 +5,23 @@ using System.Collections;
 
 public class SceneTransition : MonoBehaviour
 {
-    public Image fadeImage;  // Reference to the UI Image (Fade Image)
 
     public static SceneTransition instance;
+    [SerializeField] Animator sceneTransAnim;
 
-    // Ensure there is only one instance of this object
     void Awake()
     {
         if (instance != null)
         {
-            Destroy(gameObject);  // Destroy any duplicate instances
+            Destroy(gameObject);
         }
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  // Keep this object between scenes
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-    // This method will be called to fade to a scene
     public void FadeToScene(string sceneName)
     {
         StartCoroutine(FadeAndLoad(sceneName));
@@ -31,27 +29,10 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator FadeAndLoad(string sceneName)
     {
-        fadeImage = GameObject.Find("FadeImage").GetComponent<Image>();
-
-        // Fade out (make the image visible)
-        fadeImage.gameObject.SetActive(true);
-        float fadeTime = 1f;
-        for (float t = 0; t < fadeTime; t += Time.deltaTime)
-        {
-            fadeImage.color = Color.Lerp(Color.clear, Color.black, t / fadeTime);
-            yield return null;
-        }
-
-        // Load the new scene
+        sceneTransAnim.SetTrigger("End");
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(sceneName);
-
-        // Fade in (make the image invisible)
-        for (float t = 0; t < fadeTime; t += Time.deltaTime)
-        {
-            fadeImage.color = Color.Lerp(Color.black, Color.clear, t / fadeTime);
-            yield return null;
-        }
-
-        fadeImage.gameObject.SetActive(false);  // Deactivate the image after the fade-in
+        sceneTransAnim.SetTrigger("Start");
     }
 }
+

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         // Load the Gameplay scene
-        SceneManager.LoadScene("1-1");
         SceneTransition.instance.FadeToScene("1-1");
     }
 

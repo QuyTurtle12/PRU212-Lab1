@@ -1,15 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EndMenuManager : MonoBehaviour
 {
-    public SceneTransition sceneTransition;
-
     // Return to main menu scene
     public void EndGame()
     {
-        SceneManager.LoadScene("MainMenu");
-
+        SceneTransition.instance.FadeToScene("1-1");
     }
 
     // Quit Game

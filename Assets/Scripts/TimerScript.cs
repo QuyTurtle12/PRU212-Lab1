@@ -29,7 +29,7 @@ public class TimerScript : MonoBehaviour
     private IEnumerator LoadEndMenuAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("EndMenu");
+        SceneTransition.instance.FadeToScene("EndMenu");
         timerText.enabled = false;
     }
 
@@ -66,15 +66,15 @@ public class TimerScript : MonoBehaviour
         // Check for the next scene and load it
         if (currentSceneName == "1-1")
         {
-            SceneManager.LoadScene("1-2");  // Transition from 1-1 to 1-2
+            SceneTransition.instance.FadeToScene("1-2");  // Transition from 1-1 to 1-2
         }
         else if (currentSceneName == "1-2")
         {
-            SceneManager.LoadScene("1-3");  // Transition from 1-2 to 1-3
+            SceneTransition.instance.FadeToScene("1-3");  // Transition from 1-2 to 1-3
         }
         else if (currentSceneName == "1-3")
         {
-            SceneManager.LoadScene("MainMenu");  // Transition from 1-3 to MainMenu or another scene
+            SceneTransition.instance.FadeToScene("MainMenu");  // Transition from 1-3 to MainMenu or another scene
         }
     }
 
