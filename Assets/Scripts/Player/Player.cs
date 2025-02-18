@@ -12,6 +12,7 @@ namespace spaceExplorer.Player
         private PlayerMove playerMove;
         private PlayerAttack playerAttack;
         private readonly float damage = 10f;
+        private PlayerEx playerExplode;
         
         private void Awake()
         {
@@ -24,7 +25,8 @@ namespace spaceExplorer.Player
             {
                 Destroy(gameObject); // Destroy duplicate instances
             }
-            
+
+            playerExplode = GetComponent<PlayerEx>();
             playerAttack = GetComponent<PlayerAttack>();
             playerAttack.DamageDealer = GetComponent<DamageDealer>();
             playerMove = GetComponent<PlayerMove>();
@@ -32,10 +34,15 @@ namespace spaceExplorer.Player
 
             transform.position = Vector3.zero; // Reset player position
             SceneManager.sceneLoaded += OnSceneLoaded;
+            playerExplode.OnDeath += PlayerExplode_OnDeath;
+        }
+        private void PlayerExplode_OnDeath(object sender, System.EventArgs e)
+        {
+            playerAttack.DisableAction();
+            Destroy(gameObject);
         }
         private void Start()
         {
-            
             CinemachineCameraManager.Instance.SetFollowTarget(transform);
         }
         private void Update()
@@ -54,6 +61,10 @@ namespace spaceExplorer.Player
         float IDamageSource.GetDamage() => damage;
         private void OnDestroy()
         {
+            if (playerAttack != null)
+            {
+                playerAttack.DisableAction(); // Ensure input is disabled
+            }
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }

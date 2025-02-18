@@ -57,6 +57,26 @@ namespace spaceExplorer.Player
         {
             lazerRenderer.enabled = false;
         }
+        public void DisableAction()
+        {
+            if(action == null) return;
+            action.Player.Attack.performed -= OnShootPerformed;
+            action.Player.Disable();
+        }
+        private void OnDisable()
+        {
+            DisableAction();
+        }
+        private void OnDestroy()
+        {
+            if (action != null)
+            {
+                action.Player.Attack.performed -= OnShootPerformed;
+                action.Disable();
+                action.Dispose(); // <— final cleanup
+            }
+        }
+
     }
 }
 

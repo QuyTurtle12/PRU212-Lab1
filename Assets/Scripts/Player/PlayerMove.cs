@@ -21,7 +21,6 @@ namespace spaceExplorer.Player
         {
             HandleMove();
         }
-
         public void HandleMove()
         {
             Vector2 inputMoveDir = action.Player.Move.ReadValue<Vector2>();
@@ -37,6 +36,19 @@ namespace spaceExplorer.Player
                 IsMoving = false;
             }
         }
+        private void OnDisable()
+        {
+            action.Disable();
+        }
+        private void OnDestroy()
+        {
+            if (action != null)
+            {
+                action.Disable();
+                action.Dispose(); // <— final cleanup
+            }
+        }
+
     }
 }
 

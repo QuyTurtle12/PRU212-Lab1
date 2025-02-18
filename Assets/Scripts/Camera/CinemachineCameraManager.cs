@@ -25,11 +25,11 @@ public class CinemachineCameraManager : MonoBehaviour
     }
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
+        /*if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
         {
             gameObject.SetActive(false);
             return;
-        }
+        }*/
     }
     private void FindCinemachineCamera()
     {

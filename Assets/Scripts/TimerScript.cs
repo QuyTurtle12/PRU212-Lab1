@@ -1,3 +1,4 @@
+using spaceExplorer.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;  // To manage scenes
@@ -15,8 +16,7 @@ public class TimerScript : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-
-        playerEx = GameObject.Find("Player").GetComponent<PlayerEx>();
+        playerEx = Player.Instance.gameObject.GetComponent<PlayerEx>();
         ResetTimer();
 
         playerEx.OnDeath += PlayerEx_OnDeath;

@@ -15,15 +15,10 @@ public class PlayerEx : MonoBehaviour
             GameObject gm = Instantiate(GameManager.instance.explosion, transform.position, transform.rotation);
             AudioSource.PlayClipAtPoint(dieSFX, Camera.main.transform.position);
             Destroy(gm, 2f);
-
-            Destroy(this.gameObject);
-
             OnDeath?.Invoke(this.gameObject, EventArgs.Empty);
         }
     }
-
-
 }
-// Game ovel
+
 
 
