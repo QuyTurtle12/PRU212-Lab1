@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using spaceExplorer.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

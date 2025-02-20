@@ -17,7 +17,12 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        InvokeRepeating("InstantiateMeteor", 1f, 2f);
+        Invoke("StartMeteorInstantiation", 1f); // Delay by 3 seconds
+    }
+
+    void StartMeteorInstantiation()
+    {
+        InvokeRepeating("InstantiateMeteor", 1f, 2f); // Start repeating after the delay
     }
 
 

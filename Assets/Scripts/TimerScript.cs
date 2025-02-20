@@ -13,9 +13,27 @@ public class TimerScript : MonoBehaviour
     public PlayerEx playerEx;
     private bool isTimerActive = false;
 
+    //public static TimerScript Instance { get; private set; } // Add this line
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        playerEx = Player.Instance.gameObject.GetComponent<PlayerEx>();
+        ResetTimer();
+
+        playerEx.OnDeath += PlayerEx_OnDeath;
+
+        //if (Instance == null) // Check if instance exists
+        //{
+        //    Instance = this; // Set instance
+        //    DontDestroyOnLoad(gameObject); // Keep it persistent
+        //}
+        //else
+        //{
+        //    Destroy(gameObject); // Destroy duplicate
+        //    return; // Exit the Start method
+        //}
+
         playerEx = Player.Instance.gameObject.GetComponent<PlayerEx>();
         ResetTimer();
 
@@ -24,7 +42,8 @@ public class TimerScript : MonoBehaviour
 
     private void PlayerEx_OnDeath(object sender, System.EventArgs e)
     {
-        StartCoroutine(LoadEndMenuAfterDelay(2f));
+        SceneTransition.instance.FadeToScene("EndMenu");
+        //StartCoroutine(LoadEndMenuAfterDelay(2f));
     }
     private IEnumerator LoadEndMenuAfterDelay(float delay)
     {

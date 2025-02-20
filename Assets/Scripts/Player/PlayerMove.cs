@@ -9,7 +9,15 @@ namespace spaceExplorer.Player
         private Vector3 moveDir;
         private readonly float moveSpeed = 5f;
         public bool IsMoving {  get; private set; }
-        private void Start()
+        //private void Start()
+        //{
+        //    moveDir = Vector3.zero;
+        //    IsMoving = false;
+        //    action = new InputSystem_Actions();
+        //    action.Enable();
+        //}
+
+        private void OnEnable()
         {
             moveDir = Vector3.zero;
             IsMoving = false;
@@ -45,7 +53,7 @@ namespace spaceExplorer.Player
             if (action != null)
             {
                 action.Disable();
-                action.Dispose(); // <— final cleanup
+                action.Dispose(); // <Efinal cleanup
             }
         }
 

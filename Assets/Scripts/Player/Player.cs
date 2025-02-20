@@ -1,4 +1,5 @@
 using spaceExplorer.DamageSystem;
+using System.Collections;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace spaceExplorer.Player
         private PlayerAttack playerAttack;
         private readonly float damage = 10f;
         private PlayerEx playerExplode;
-        
+
         private void Awake()
         {
             if(Instance == null)
@@ -47,18 +48,35 @@ namespace spaceExplorer.Player
         }
         private void Update()
         {
-            if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
-            {
-                gameObject.SetActive(false);
-                return;
-            }
+            //if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
+            //{
+            //    gameObject.SetActive(false);
+            //    return;
+            //}
         }
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            CinemachineCameraManager.Instance.SetFollowTarget(transform);
-            
+            //CinemachineCameraManager.Instance.SetFollowTarget(transform);
+            if (scene.name == "1-1")
+            {
+                gameObject.SetActive(true); // Enable player in scene 1-1
+                CinemachineCameraManager.Instance.SetFollowTarget(transform);
+                GetComponent<PlayerMove>().enabled = true; // Re-enable PlayerMove
+            }
+            else if (scene.name == "EndMenu")
+            {
+                gameObject.SetActive(false); // Disable player in End Menu
+            }
+            else
+            {
+                CinemachineCameraManager.Instance.SetFollowTarget(transform);
+            }
+
         }
-        float IDamageSource.GetDamage() => damage;
+        float IDamageSource.GetDamage() // Implement GetDamage
+        {
+            return damage;
+        }
         private void OnDestroy()
         {
             if (playerAttack != null)
