@@ -38,4 +38,5 @@ Thumbs.db
 *.json
 .vs/
 !.vsconfig
+ProjectSettings/
 
