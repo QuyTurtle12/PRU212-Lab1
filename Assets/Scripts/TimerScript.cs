@@ -74,7 +74,7 @@ public class TimerScript : MonoBehaviour
         }
         else if (currentSceneName == "1-3")
         {
-            SceneTransition.instance.FadeToScene("MainMenu");  // Transition from 1-3 to MainMenu or another scene
+            SceneTransition.instance.FadeToScene("EndMenu");  // Transition from 1-3 to MainMenu or another scene
         }
     }
 

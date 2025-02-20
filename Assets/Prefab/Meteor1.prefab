@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5599102086854fafc7b6958077b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Meterorspeed: 25
+  Meterorspeed: 20
   maxHealth: 10
 --- !u!114 &2873119591610984398
 MonoBehaviour:
