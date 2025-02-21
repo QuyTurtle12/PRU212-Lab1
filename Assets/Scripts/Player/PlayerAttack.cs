@@ -14,17 +14,7 @@ namespace spaceExplorer.Player
         private AudioSource audioSource;
         [SerializeField] private AudioClip shootingBeamSFX;
 
-        //private void Start()
-        //{
-        //    audioSource = GetComponent<AudioSource>();
-        //    targetLayer = LayerMask.GetMask("Vulnerable");
-        //    action = new InputSystem_Actions();
-        //    action.Enable();
-        //    lazerRenderer.enabled = false;
-        //    action.Player.Attack.performed += OnShootPerformed;
-        //}
-
-        private void OnEnable()
+        private void Start()
         {
             audioSource = GetComponent<AudioSource>();
             targetLayer = LayerMask.GetMask("Vulnerable");
@@ -33,6 +23,16 @@ namespace spaceExplorer.Player
             lazerRenderer.enabled = false;
             action.Player.Attack.performed += OnShootPerformed;
         }
+
+        /*private void OnEnable()
+        {
+            audioSource = GetComponent<AudioSource>();
+            targetLayer = LayerMask.GetMask("Vulnerable");
+            action = new InputSystem_Actions();
+            action.Enable();
+            lazerRenderer.enabled = false;
+            action.Player.Attack.performed += OnShootPerformed;
+        }*/
         private void OnShootPerformed(InputAction.CallbackContext context)
         {
             if (Player.Instance == null) return; 

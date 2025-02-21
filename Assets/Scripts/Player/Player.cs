@@ -46,17 +46,18 @@ namespace spaceExplorer.Player
         {
             CinemachineCameraManager.Instance.SetFollowTarget(transform);
         }
-        private void Update()
-        {
-            //if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
-            //{
-            //    gameObject.SetActive(false);
-            //    return;
-            //}
-        }
+        
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            //CinemachineCameraManager.Instance.SetFollowTarget(transform);
+            if(scene.name == "EndMenu")
+            {
+                Destroy(gameObject);
+                return;
+            }
+            CinemachineCameraManager.Instance.SetFollowTarget(transform);
+
+
+/*
             if (scene.name == "1-1")
             {
                 gameObject.SetActive(true); // Enable player in scene 1-1
@@ -70,7 +71,7 @@ namespace spaceExplorer.Player
             else
             {
                 CinemachineCameraManager.Instance.SetFollowTarget(transform);
-            }
+            }*/
 
         }
         float IDamageSource.GetDamage() // Implement GetDamage
