@@ -55,8 +55,12 @@ namespace spaceExplorer.Player
         }
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            if(SceneManager.GetActiveScene().name == "EndMenu")
+            {
+                Destroy(this.gameObject);
+                return;
+            }
             CinemachineCameraManager.Instance.SetFollowTarget(transform);
-            
         }
         float IDamageSource.GetDamage() => damage;
         private void OnDestroy()
