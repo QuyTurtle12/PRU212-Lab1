@@ -41,10 +41,10 @@ Space Explorer immerses players in a cosmic journey where quick reflexes and str
   - **Star Collection:** Earn points by collecting stars scattered throughout the game scenes.
   
 - **Game Instruction**
-- WASD to move spaceship.
-- Spacebar to shoot laser.
-- Avoid Asteroids.
-- Collect stars to earn point.
+  - WASD to move spaceship.
+  - Spacebar to shoot laser.
+  - Avoid Asteroids.
+  - Collect stars to earn point.
 
 ---
 
